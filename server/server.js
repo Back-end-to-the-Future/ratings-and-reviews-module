@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const path = require('path');
+const dummyData = require('./dummyData.js');
 
 // const prefix = '/rrmodule';
 
@@ -19,38 +20,23 @@ app.get('/rrmodule', (req, res) => {
 });
 
 app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
-  axios.get(`${url}/reviews/${req.params.product_id}/list`, {
-    params: {
-      count: 20,
-      sort: 'newest',
-    },
-  })
-    .then((response) => {
-      res.send(response.data);
-    })
-    .catch((error) => {
-      res.send('Error has occurced:', error);
-    });
+  res.status(200).send(dummyData.listReviews);
 });
 
 app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
-  axios.get(`${url}/reviews/${req.params.product_id}/meta`)
-    .then((response) => {
-      res.send(response.data);
-    })
-    .catch((error) => {
-      res.send('Error has occurced:', error);
-    });
+  res.status(200).send(dummyData.reviewMetadata);
+});
+
+app.post('/rrmodule/reviews/:product_id', (req, res) => {
+  res.status(201).send(dummyData.addReview);
 });
 
 app.put('/rrmodule/reviews/helpful/:review_id', (req, res) => {
-  axios.put(`${url}/reviews/helpful/${req.params.review_id}`)
-    .then(() => {
-      res.send();
-    })
-    .catch((error) => {
-      res.send('Error has occured: ', error);
-    });
+  res.status(204).send(dummyData.markHelpfulReview);
+});
+
+app.put('/rrmodule/reviews/report/:review_id', (req, res) => {
+  res.status(204).send(dummyData.reportReview);
 });
 
 app.listen(port, () => {
