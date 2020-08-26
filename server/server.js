@@ -2,14 +2,13 @@ const express = require('express');
 
 const app = express();
 const bodyParser = require('body-parser');
-const axios = require('axios');
 const path = require('path');
 const dummyData = require('./dummyData.js');
 
 // const prefix = '/rrmodule';
 
 const port = 3000;
-const url = 'http://52.26.193.201:3000';
+// const url = 'http://52.26.193.201:3000';
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
