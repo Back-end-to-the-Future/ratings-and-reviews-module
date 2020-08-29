@@ -4,16 +4,13 @@ const faker = require('faker');
 const fs = require('fs');
 
 let seedReviews = 'id_product,rating,summary,recommend,response,body,date,reviewer_name,reviewer_email,helpfulness,reported,\n';
-// let seedPhotos = 'id,reviews_id,url,\n';
-// let seedCharacteristics_reviews = 'id,reviews_id,characteristics_id,value,\n';
-// let seedCharacteristics = 'id,product_id,name,\n';
 
 // console.log('date: ', reviewer_email);
 
 const generateReviews = () => {
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < 10000000; i += 1) {
     const boolean = Math.floor(Math.random() * 2);
-    const id_product = Math.floor(Math.random() * 5) + 1;
+    const id_product = Math.floor(Math.random() * 1000000) + 1;
     const rating = Math.floor(Math.random() * 5) + 1;
     const summary = faker.lorem.sentence(3);
     const recommend = (boolean === 1 ? 'yes' : 'no');
