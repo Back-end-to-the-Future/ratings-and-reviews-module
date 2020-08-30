@@ -15,62 +15,53 @@ const generateCharacteristics = () => {
     })
   );
 
+  const seed = (idx1, idx2, char) => {
+    const review_id = idx1;
+    const characteristics_id = idx2;
+    let value = (Math.round(Math.random() * 20) + 1) / 4;
+    value = value && value > 5 ? 5 : value;
+    value = parseFloat(value).toFixed(4);
+    seedCharacteristics = seedCharacteristics.concat(`${review_id},${characteristics_id},${char},${value}\n`);
+  };
+
   const generateFit = () => {
-    for (let i = 0, j = 0; i < 10 && j < 10; i += 1, j += 2) {
-      const review_id = j + 1;
-      let value = (Math.round(Math.random() * 20) + 1) / 4;
-      value = value && value > 5 ? 5 : value;
-      seedCharacteristics = seedCharacteristics.concat(`${review_id},${1},Fit,${parseFloat(value).toFixed(4)}\n`);
+    for (let i = 1, j = 1; i <= 30 && j <= 30; i += 2, j += 6) {
+      seed(i, j, 'Fit');
     }
     fileWriter();
   };
 
   const generateLength = () => {
-    for (let i = 0, j = 0; i < 10 && j < 10; i += 1, j += 3) {
-      const review_id = j + 1;
-      let value = (Math.round(Math.random() * 20) + 1) / 4;
-      value = value && value > 5 ? 5 : value;
-      seedCharacteristics = seedCharacteristics.concat(`${review_id},${2},Length,${parseFloat(value).toFixed(4)}\n`);
+    for (let i = 1, j = 2; i <= 30 && j <= 30; i += 2, j += 6) {
+      seed(i, j, 'Length');
     }
     fileWriter();
   };
 
   const generateComfort = () => {
-    for (let i = 0, j = 0; i < 10 && j < 10; i += 1, j += 3) {
-      const review_id = j + 1;
-      let value = (Math.round(Math.random() * 20) + 1) / 4;
-      value = value && value > 5 ? 5 : value;
-      seedCharacteristics = seedCharacteristics.concat(`${review_id},${3},Comfort,${parseFloat(value).toFixed(4)}\n`);
+    for (let i = 1, j = 3; i <= 30 && j <= 30; i += 2, j += 6) {
+      seed(i, j, 'Comfort');
     }
     fileWriter();
   };
 
   const generateQuality = () => {
-    for (let i = 0; i < 10; i += 1) {
-      const review_id = i + 1;
-      let value = (Math.round(Math.random() * 20) + 1) / 4;
-      value = value && value > 5 ? 5 : value;
-      seedCharacteristics = seedCharacteristics.concat(`${review_id},${4},Quality,${parseFloat(value).toFixed(4)}\n`);
+    for (let i = 1, j = 4; i <= 30 && j <= 30; i += 1, j += 6) {
+      seed(i, j, 'Quality');
     }
     fileWriter();
   };
 
   const generateSize = () => {
-    for (let i = 0, j = 0; i < 10 && j < 10; i += 1, j += 5) {
-      const review_id = j + 1;
-      let value = (Math.round(Math.random() * 20) + 1) / 4;
-      value = value && value > 5 ? 5 : value;
-      seedCharacteristics = seedCharacteristics.concat(`${review_id},${5},Size,${parseFloat(value).toFixed(4)}\n`);
+    for (let i = 2, j = 5; i <= 30 && j <= 30; i += 2, j += 6) {
+      seed(i, j, 'Size');
     }
     fileWriter();
   };
 
   const generateWidth = () => {
-    for (let i = 0, j = 0; i < 10 && j < 10; i += 1, j += 5) {
-      const review_id = j + 1;
-      let value = (Math.round(Math.random() * 20) + 1) / 4;
-      value = value && value > 5 ? 5 : value;
-      seedCharacteristics = seedCharacteristics.concat(`${review_id},${6},Width,${parseFloat(value).toFixed(4)}\n`);
+    for (let i = 2, j = 6; i <= 30 && j <= 30; i += 2, j += 6) {
+      seed(i, j, 'Width');
     }
     fileWriter();
   };
