@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 
 const app = express();
 const bodyParser = require('body-parser');
@@ -8,7 +9,7 @@ const dummyData = require('./dummyData.js');
 // const prefix = '/rrmodule';
 
 const port = 3000;
-// const url = 'http://52.26.193.201:3000';
+const url = 'http://52.26.193.201:3000';
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -26,8 +27,18 @@ app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
   res.status(200).send(dummyData.listReviews);
 });
 
+// app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
+//   res.status(200).send(dummyData.reviewMetadata);
+// });
+
 app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
-  res.status(200).send(dummyData.reviewMetadata);
+  axios.get(`${url}/reviews/${req.params.product_id}/meta`)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      res.send('Error has occurced:', error);
+    });
 });
 
 app.post('/rrmodule/reviews/:product_id', (req, res) => {

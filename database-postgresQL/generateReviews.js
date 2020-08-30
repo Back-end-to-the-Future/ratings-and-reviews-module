@@ -8,6 +8,7 @@ let seedReviews = 'id_product,rating,summary,recommend,response,body,date,review
 // console.log('date: ', reviewer_email);
 
 const generateReviews = () => {
+  console.log('START DATA GENERATION: ', new Date().toUTCString());
   for (let i = 0; i < 10000000; i += 1) {
     const boolean = Math.floor(Math.random() * 2);
     const id_product = Math.floor(Math.random() * 1000000) + 1;
