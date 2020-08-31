@@ -19,17 +19,46 @@ app.get('/rrmodule', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/../public/bundle.js`));
 });
 
-app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
-  // let {page} = req.query;
-  // let {count} = req.query;
-  console.log('query: ', req.query);
+// app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
+//   // let {page} = req.query;
+//   // let {count} = req.query;
+//   console.log('query: ', req.query);
 
-  res.status(200).send(dummyData.listReviews);
-});
+//   res.status(200).send(dummyData.listReviews);
+// });
 
 // app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
 //   res.status(200).send(dummyData.reviewMetadata);
 // });
+
+// app.post('/rrmodule/reviews/:product_id', (req, res) => {
+//   res.status(201).send(dummyData.addReview);
+// });
+
+// app.put('/rrmodule/reviews/helpful/:review_id', (req, res) => {
+//   res.status(204).send(dummyData.markHelpfulReview);
+// });
+
+// app.put('/rrmodule/reviews/report/:review_id', (req, res) => {
+//   res.status(204).send(dummyData.reportReview);
+// });
+
+// OLD ROUTES
+
+app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
+  axios.get(`${url}/reviews/${req.params.product_id}/list`, {
+    params: {
+      count: 20,
+      sort: 'newest',
+    },
+  })
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      res.send('Error has occurced:', error);
+    });
+});
 
 app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
   axios.get(`${url}/reviews/${req.params.product_id}/meta`)
@@ -41,16 +70,14 @@ app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
     });
 });
 
-app.post('/rrmodule/reviews/:product_id', (req, res) => {
-  res.status(201).send(dummyData.addReview);
-});
-
 app.put('/rrmodule/reviews/helpful/:review_id', (req, res) => {
-  res.status(204).send(dummyData.markHelpfulReview);
-});
-
-app.put('/rrmodule/reviews/report/:review_id', (req, res) => {
-  res.status(204).send(dummyData.reportReview);
+  axios.put(`${url}/reviews/helpful/${req.params.review_id}`)
+    .then(() => {
+      res.send();
+    })
+    .catch((error) => {
+      res.send('Error has occured: ', error);
+    });
 });
 
 app.listen(port, () => {

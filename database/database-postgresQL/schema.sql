@@ -25,7 +25,7 @@ CREATE TABLE photos (
 );
 
 CREATE TABLE characteristics (
-  id SERIAL PRIMARY KEY,
+  characteristics_id SERIAL PRIMARY KEY,
   product_id INTEGER REFERENCES reviews,
   name VARCHAR
 );
@@ -34,5 +34,5 @@ CREATE TABLE characteristics_reviews (
   id SERIAL PRIMARY KEY,
   review_id INTEGER REFERENCES reviews,
   characteristics_id INTEGER REFERENCES characteristics,
-  rating SMALLINT
+  value VARCHAR
 );
