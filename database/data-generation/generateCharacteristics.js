@@ -1,95 +1,31 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 const fs = require('fs');
+const faker = require('faker');
 
-let seedCharacteristics = 'review_id,characteristics_id,value,\n';
-// let seedCharNames = 'name,\n';
+let seedCharacteristics = 'characteristics_id,review_id,name,value,\n';
 
 const generateCharacteristics = () => {
   console.log('START DATA GENERATION: ', new Date().toUTCString());
 
-  const fileWriter = () => (
-    fs.writeFile('./characteristics.csv', seedCharacteristics, (err) => {
-      if (err) {
-        throw err;
-      }
-    })
-  );
-
-  // const fileWriterNames = () => (
-  //   fs.writeFile('./char-names.csv', seedCharNames, (err) => {
-  //     if (err) {
-  //       throw err;
-  //     }
-  //   })
-  // );
-
-  // const seed = (idx1, idx2, char) => {
-  const seed = (idx1, idx2) => {
-    const review_id = idx1;
-    const characteristics_id = idx2;
-    let value = (Math.round(Math.random() * 20) + 1) / 4;
-    value = value && value > 5 ? 5 : value;
-    value = parseFloat(value).toFixed(4);
-    seedCharacteristics = seedCharacteristics.concat(`${review_id},${characteristics_id},${value}\n`);
-    // seedCharNames = seedCharNames.concat(`${char}\n`);
-    console.log('value: ', typeof value);
-  };
-
-  const generateFit = () => {
-    for (let i = 1, j = 1; i <= 300 && j <= 300; i += 2, j += 6) {
-      seed(i, j, 'Fit');
+  let char_id = 0;
+  for (let review_id = 1; review_id <= 100; review_id += 1) {
+    const randomChar = Math.floor(Math.random() * 4) + 1;
+    for (let i = 1; i <= randomChar; i += 1) {
+      const name = faker.commerce.productAdjective();
+      let value = (Math.round(Math.random() * 20) + 1) / 4;
+      value = value && value > 5 ? 5 : value;
+      value = parseFloat(value).toFixed(4);
+      char_id += 1;
+      seedCharacteristics = seedCharacteristics.concat(`${char_id},${review_id},${name},${value}\n`);
     }
-    fileWriter();
-    // fileWriterNames();
-  };
+  }
 
-  const generateLength = () => {
-    for (let i = 1, j = 2; i <= 300 && j <= 300; i += 2, j += 6) {
-      seed(i, j, 'Length');
+  fs.writeFile('./characteristics.csv', seedCharacteristics, (err) => {
+    if (err) {
+      throw err;
     }
-    fileWriter();
-    // fileWriterNames();
-  };
-
-  const generateComfort = () => {
-    for (let i = 1, j = 3; i <= 300 && j <= 300; i += 2, j += 6) {
-      seed(i, j, 'Comfort');
-    }
-    fileWriter();
-    // fileWriterNames();
-  };
-
-  const generateQuality = () => {
-    for (let i = 1, j = 4; i <= 300 && j <= 300; i += 2, j += 6) {
-      seed(i, j, 'Quality');
-    }
-    fileWriter();
-    // fileWriterNames();
-  };
-
-  const generateSize = () => {
-    for (let i = 2, j = 5; i <= 300 && j <= 300; i += 2, j += 6) {
-      seed(i, j, 'Size');
-    }
-    fileWriter();
-    // fileWriterNames();
-  };
-
-  const generateWidth = () => {
-    for (let i = 2, j = 6; i <= 300 && j <= 300; i += 2, j += 6) {
-      seed(i, j, 'Width');
-    }
-    fileWriter();
-    // fileWriterNames();
-  };
-
-  generateFit();
-  generateLength();
-  generateComfort();
-  generateQuality();
-  generateSize();
-  generateWidth();
+  });
 };
 
 generateCharacteristics();

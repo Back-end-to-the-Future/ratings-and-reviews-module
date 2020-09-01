@@ -7,8 +7,8 @@ let seedPhotos = 'review_id,url,\n';
 
 const generatePhotos = () => {
   console.log('START DATA GENERATION: ', new Date().toUTCString());
-  for (let i = 0; i < 50; i += 1) {
-    const review_id = Math.floor(Math.random() * 100) + 1;
+  for (let i = 0; i < 500000; i += 1) {
+    const review_id = Math.floor(Math.random() * 1000000) + 1;
     const url = faker.image.imageUrl();
     seedPhotos = seedPhotos.concat(`${review_id},${url}\n`);
   }

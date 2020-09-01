@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const dummyData = require('./dummyData.js');
+const controller = require('./controllers/reviews.js');
 
 // const prefix = '/rrmodule';
 
@@ -18,6 +19,8 @@ app.use(express.static('public'));
 app.get('/rrmodule', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/../public/bundle.js`));
 });
+
+app.get('/rrmodule/reviews/:product_id/list', controller.getReviews);
 
 // app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
 //   // let {page} = req.query;
@@ -45,20 +48,20 @@ app.get('/rrmodule', (req, res) => {
 
 // OLD ROUTES
 
-app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
-  axios.get(`${url}/reviews/${req.params.product_id}/list`, {
-    params: {
-      count: 20,
-      sort: 'newest',
-    },
-  })
-    .then((response) => {
-      res.send(response.data);
-    })
-    .catch((error) => {
-      res.send('Error has occurced:', error);
-    });
-});
+// app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
+//   axios.get(`${url}/reviews/${req.params.product_id}/list`, {
+//     params: {
+//       count: 20,
+//       sort: 'newest',
+//     },
+//   })
+//     .then((response) => {
+//       res.send(response.data);
+//     })
+//     .catch((error) => {
+//       res.send('Error has occurced:', error);
+//     });
+// });
 
 app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
   axios.get(`${url}/reviews/${req.params.product_id}/meta`)

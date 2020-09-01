@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS reviews,
 photos,
-characteristics,
-characteristics_reviews CASCADE;
+characteristics CASCADE;
 
 CREATE TABLE reviews (
   review_id SERIAL PRIMARY KEY,
@@ -25,14 +24,8 @@ CREATE TABLE photos (
 );
 
 CREATE TABLE characteristics (
-  characteristics_id SERIAL PRIMARY KEY,
-  product_id INTEGER REFERENCES reviews,
-  name VARCHAR
-);
-
-CREATE TABLE characteristics_reviews (
-  id SERIAL PRIMARY KEY,
+  characteristics_id BIGINT PRIMARY KEY,
   review_id INTEGER REFERENCES reviews,
-  characteristics_id INTEGER REFERENCES characteristics,
+  name VARCHAR,
   value VARCHAR
 );
