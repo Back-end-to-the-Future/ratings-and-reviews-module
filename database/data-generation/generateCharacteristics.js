@@ -3,14 +3,14 @@
 const fs = require('fs');
 const faker = require('faker');
 
-let seedCharacteristics = 'characteristics_id,review_id,name,value,\n';
+let seedCharacteristics = 'characteristics_id,product_id,name,value,\n';
 const start = Date.now();
 
 const generateCharacteristics = () => {
   console.log(`START TIME = ${new Date().toUTCString()}`);
 
   let char_id = 0;
-  for (let review_id = 1; review_id <= 100; review_id += 1) {
+  for (let product_id = 1; product_id <= 100; product_id += 1) {
     const randomChar = Math.floor(Math.random() * 4) + 1;
     for (let i = 1; i <= randomChar; i += 1) {
       const name = faker.commerce.productAdjective();
@@ -18,7 +18,7 @@ const generateCharacteristics = () => {
       value = value && value > 5 ? 5 : value;
       value = parseFloat(value).toFixed(4);
       char_id += 1;
-      seedCharacteristics = seedCharacteristics.concat(`${char_id},${review_id},${name},${value}\n`);
+      seedCharacteristics = seedCharacteristics.concat(`${char_id},${product_id},${name},${value}\n`);
     }
   }
 

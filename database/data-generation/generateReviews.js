@@ -9,9 +9,9 @@ const start = Date.now();
 const generateReviews = () => {
   console.log(`START TIME = ${new Date().toUTCString()}`);
 
-  for (let i = 0; i < 10000; i += 1) {
+  for (let i = 0; i < 100; i += 1) {
     const boolean = Math.floor(Math.random() * 2);
-    const id_product = Math.floor(Math.random() * 1000) + 1;
+    const id_product = Math.floor(Math.random() * 10) + 1;
     const rating = Math.floor(Math.random() * 5) + 1;
     const summary = faker.random.words(Math.floor(Math.random() * 10) + 5);
     const recommend = boolean;

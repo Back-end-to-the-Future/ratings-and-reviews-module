@@ -22,14 +22,6 @@ app.get('/rrmodule', (req, res) => {
 
 app.get('/rrmodule/reviews/:product_id/list', controller.getAllReviews);
 
-// app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
-//   // let {page} = req.query;
-//   // let {count} = req.query;
-//   console.log('query: ', req.query);
-
-//   res.status(200).send(dummyData.listReviews);
-// });
-
 // app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
 //   res.status(200).send(dummyData.reviewMetadata);
 // });

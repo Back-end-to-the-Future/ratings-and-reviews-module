@@ -15,8 +15,11 @@ module.exports = {
     pool.query(queryString, (err, res) => {
       const millis = Date.now() - start;
       const duration = Math.floor(millis / 1000);
-      console.log('executed query', { duration, rows: res.rowCount });
-      callback(err, res.rows);
+      if (err) {
+        callback(err);
+      }
+      console.log('executed query: ', { duration, rows: res.rowCount });
+      callback(null, res.rows);
     });
   },
 };

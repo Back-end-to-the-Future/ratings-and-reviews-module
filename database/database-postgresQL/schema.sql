@@ -25,7 +25,7 @@ CREATE TABLE photos (
 
 CREATE TABLE characteristics (
   characteristics_id BIGINT PRIMARY KEY,
-  review_id INTEGER REFERENCES reviews,
+  product_id INTEGER REFERENCES reviews,
   name VARCHAR,
   value VARCHAR
 );
