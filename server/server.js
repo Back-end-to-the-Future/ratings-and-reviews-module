@@ -20,7 +20,7 @@ app.get('/rrmodule', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/../public/bundle.js`));
 });
 
-app.get('/rrmodule/reviews/:product_id/list', controller.getReviews);
+app.get('/rrmodule/reviews/:product_id/list', controller.getAllReviews);
 
 // app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
 //   // let {page} = req.query;

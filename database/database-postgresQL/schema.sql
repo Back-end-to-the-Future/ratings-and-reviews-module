@@ -7,7 +7,7 @@ CREATE TABLE reviews (
   product_id INTEGER NOT NULL,
   rating SMALLINT,
   summary VARCHAR,
-  recommend BOOLEAN,
+  recommend SMALLINT,
   response VARCHAR,
   body VARCHAR,
   date TIMESTAMP WITH TIME ZONE,

@@ -4,5 +4,12 @@ const config = require('./config.js');
 const pool = new Pool(config.connection);
 
 module.exports = {
-  query: (text, params, callback) => pool.query(text, params, callback),
+  query: (text, params, callback) => {
+    const start = Date.now();
+    return pool.query(text, params, (err, res) => {
+      const duration = Date.now() - start;
+      console.log('executed query', { text, duration, rows: res.rowCount });
+      callback(err, res);
+    });
+  },
 };

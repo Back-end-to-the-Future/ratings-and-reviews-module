@@ -4,9 +4,11 @@ const faker = require('faker');
 const fs = require('fs');
 
 let seedPhotos = 'review_id,url,\n';
+const start = Date.now();
 
 const generatePhotos = () => {
-  console.log('START DATA GENERATION: ', new Date().toUTCString());
+  console.log(`START TIME = ${new Date().toUTCString()}`);
+
   for (let i = 0; i < 500000; i += 1) {
     const review_id = Math.floor(Math.random() * 1000000) + 1;
     const url = faker.image.imageUrl();
@@ -15,9 +17,17 @@ const generatePhotos = () => {
 
   fs.writeFile('./photos.csv', seedPhotos, (err) => {
     if (err) {
-      throw err;
+      console.log('Error: ', err);
     }
+    console.log('Successful data generation!');
   });
 };
 
+const endTime = () => {
+  const millis = Date.now() - start;
+  console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
+  console.log(`END TIME = ${new Date().toUTCString()}`);
+};
+
 generatePhotos();
+endTime();

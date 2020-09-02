@@ -4,9 +4,10 @@ const fs = require('fs');
 const faker = require('faker');
 
 let seedCharacteristics = 'characteristics_id,review_id,name,value,\n';
+const start = Date.now();
 
 const generateCharacteristics = () => {
-  console.log('START DATA GENERATION: ', new Date().toUTCString());
+  console.log(`START TIME = ${new Date().toUTCString()}`);
 
   let char_id = 0;
   for (let review_id = 1; review_id <= 100; review_id += 1) {
@@ -23,9 +24,17 @@ const generateCharacteristics = () => {
 
   fs.writeFile('./characteristics.csv', seedCharacteristics, (err) => {
     if (err) {
-      throw err;
+      console.log('Error: ', err);
     }
+    console.log('Successful data generation!');
   });
 };
 
+const endTime = () => {
+  const millis = Date.now() - start;
+  console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
+  console.log(`END TIME = ${new Date().toUTCString()}`);
+};
+
 generateCharacteristics();
+endTime();
