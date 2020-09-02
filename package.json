@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/server.js",
-    "server": "node server/server.js",
+    "start": "nodemon server/routes.js",
+    "server": "node server/routes.js",
     "test": "jest --coverage"
   },
   "keywords": [],

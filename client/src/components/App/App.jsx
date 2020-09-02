@@ -47,7 +47,7 @@ const App = () => {
     characteristics: null,
   });
   // const [reviews, setReviews] = useState([]);
-  const param = 18;
+  const param = 1;
   // use 2, 18, 24 for demo
 
   const handleClose = () => setShow(false);
