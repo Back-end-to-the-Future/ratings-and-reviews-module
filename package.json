@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/server.js",
-    "server": "node server/server.js",
+    "start": "nodemon server/routes.js",
+    "server": "node server/routes.js",
     "test": "jest --coverage"
   },
   "keywords": [],
@@ -19,8 +19,11 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.2",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "moment": "^2.27.0",
+    "mongoose": "^5.10.1",
     "path": "^0.12.7",
+    "pg": "^8.3.3",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
