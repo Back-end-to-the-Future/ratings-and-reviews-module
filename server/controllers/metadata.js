@@ -4,25 +4,25 @@
 const models = require('../models/metadata.js');
 
 const accessRatings = (ratings) => {
-  const ratingsObj = {};
+  const ratingsData = {};
   ratings.forEach((rating) => {
     const currentRating = rating.rating;
-    ratingsObj[currentRating] === undefined
-      ? (ratingsObj[currentRating] = 1)
-      : (ratingsObj[currentRating] += 1);
+    ratingsData[currentRating] === undefined
+      ? (ratingsData[currentRating] = 1)
+      : (ratingsData[currentRating] += 1);
   });
-  return ratingsObj;
+  return ratingsData;
 };
 
 const accessRecommends = (recommended) => {
-  const recommendedObj = {};
+  const recommendedData = {};
   recommended.forEach((recommend) => {
     const currentRecommend = recommend.recommend;
-    recommendedObj[currentRecommend] === undefined
-      ? (recommendedObj[currentRecommend] = 1)
-      : (recommendedObj[currentRecommend] += 1);
+    recommendedData[currentRecommend] === undefined
+      ? (recommendedData[currentRecommend] = 1)
+      : (recommendedData[currentRecommend] += 1);
   });
-  return recommendedObj;
+  return recommendedData;
 };
 
 const accessCharacteristics = (characteristics) => {
