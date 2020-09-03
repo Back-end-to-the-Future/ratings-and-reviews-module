@@ -5,7 +5,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const dummyData = require('./dummyData.js');
-const controller = require('./controllers/reviews.js');
+const reviews = require('./controllers/reviews.js');
+const metadata = require('./controllers/metadata.js');
 
 // const prefix = '/rrmodule';
 
@@ -20,7 +21,9 @@ app.get('/rrmodule', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/../public/bundle.js`));
 });
 
-app.get('/rrmodule/reviews/:product_id/list', controller.getAllReviews);
+app.get('/rrmodule/reviews/:product_id/list', reviews.getAllReviews);
+app.get('/rrmodule/reviews/:product_id/meta', metadata.getMetadata);
+// app.get('/rrmodule/reviews/:product_id/meta', metadata.getCharacteristics);
 
 // app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
 //   res.status(200).send(dummyData.reviewMetadata);
@@ -55,15 +58,15 @@ app.get('/rrmodule/reviews/:product_id/list', controller.getAllReviews);
 //     });
 // });
 
-app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
-  axios.get(`${url}/reviews/${req.params.product_id}/meta`)
-    .then((response) => {
-      res.send(response.data);
-    })
-    .catch((error) => {
-      res.send('Error has occurced:', error);
-    });
-});
+// app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
+//   axios.get(`${url}/reviews/${req.params.product_id}/meta`)
+//     .then((response) => {
+//       res.send(response.data);
+//     })
+//     .catch((error) => {
+//       res.send('Error has occurced:', error);
+//     });
+// });
 
 app.put('/rrmodule/reviews/helpful/:review_id', (req, res) => {
   axios.put(`${url}/reviews/helpful/${req.params.review_id}`)

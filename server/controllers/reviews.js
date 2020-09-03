@@ -12,7 +12,7 @@ module.exports = {
 
     models.getAllReviews(req.params.product_id, (err, results) => {
       if (err) {
-        res.status(404).send(err);
+        res.status(500).send(err);
       }
       resultData.results = results;
       res.status(200).json(resultData);

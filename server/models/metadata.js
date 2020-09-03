@@ -20,7 +20,7 @@ module.exports = {
   getRatings: (product_id, callback) => {
     getChar(product_id, callback, 'rating', 'reviews');
   },
-  getRecommend: (product_id, callback) => {
+  getRecommends: (product_id, callback) => {
     getChar(product_id, callback, 'recommend', 'reviews');
   },
   getCharacteristics: (product_id, callback) => {
