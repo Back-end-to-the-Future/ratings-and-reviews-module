@@ -1,10 +1,10 @@
+/* eslint-disable no-console */
 const express = require('express');
 const axios = require('axios');
 
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const dummyData = require('./dummyData.js');
 const reviews = require('./controllers/reviews.js');
 const metadata = require('./controllers/metadata.js');
 
@@ -23,11 +23,6 @@ app.get('/rrmodule', (req, res) => {
 
 app.get('/rrmodule/reviews/:product_id/list', reviews.getAllReviews);
 app.get('/rrmodule/reviews/:product_id/meta', metadata.getMetadata);
-// app.get('/rrmodule/reviews/:product_id/meta', metadata.getCharacteristics);
-
-// app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
-//   res.status(200).send(dummyData.reviewMetadata);
-// });
 
 // app.post('/rrmodule/reviews/:product_id', (req, res) => {
 //   res.status(201).send(dummyData.addReview);
@@ -43,31 +38,6 @@ app.get('/rrmodule/reviews/:product_id/meta', metadata.getMetadata);
 
 // OLD ROUTES
 
-// app.get('/rrmodule/reviews/:product_id/list', (req, res) => {
-//   axios.get(`${url}/reviews/${req.params.product_id}/list`, {
-//     params: {
-//       count: 20,
-//       sort: 'newest',
-//     },
-//   })
-//     .then((response) => {
-//       res.send(response.data);
-//     })
-//     .catch((error) => {
-//       res.send('Error has occurced:', error);
-//     });
-// });
-
-// app.get('/rrmodule/reviews/:product_id/meta', (req, res) => {
-//   axios.get(`${url}/reviews/${req.params.product_id}/meta`)
-//     .then((response) => {
-//       res.send(response.data);
-//     })
-//     .catch((error) => {
-//       res.send('Error has occurced:', error);
-//     });
-// });
-
 app.put('/rrmodule/reviews/helpful/:review_id', (req, res) => {
   axios.put(`${url}/reviews/helpful/${req.params.review_id}`)
     .then(() => {
@@ -79,6 +49,5 @@ app.put('/rrmodule/reviews/helpful/:review_id', (req, res) => {
 });
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`The server is listening on port ${port}`);
 });
