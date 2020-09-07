@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const start = Date.now();
 const writePhotos = fs.createWriteStream('photos.csv');
-writePhotos.write('review_id,url,\n', 'utf-8');
+writePhotos.write('review_id,url\n', 'utf-8');
 
 const writeFiveMillionPhotos = (writer, encoding, callback) => {
   console.log(`START TIME = ${new Date().toUTCString()}`);

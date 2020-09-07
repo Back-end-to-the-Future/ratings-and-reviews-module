@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const start = Date.now();
 const writeReviews = fs.createWriteStream('reviews.csv');
-writeReviews.write('id_product,rating,summary,recommend,response,body,date,reviewer_name,reviewer_email,helpfulness,reported,\n', 'utf-8');
+writeReviews.write('product_id,rating,summary,recommend,response,body,date,reviewer_name,reviewer_email,helpfulness,reported\n', 'utf-8');
 
 const writeTenMillionReviews = (writer, encoding, callback) => {
   console.log(`START TIME = ${new Date().toUTCString()}`);
@@ -15,7 +15,7 @@ const writeTenMillionReviews = (writer, encoding, callback) => {
     do {
       i -= 1;
       const boolean = Math.floor(Math.random() * 2);
-      const id_product = Math.floor(Math.random() * 1000000) + 1;
+      const product_id = Math.floor(Math.random() * 1000000) + 1;
       const rating = Math.floor(Math.random() * 5) + 1;
       const summary = faker.lorem.sentence(3);
       const recommend = boolean;
@@ -26,7 +26,7 @@ const writeTenMillionReviews = (writer, encoding, callback) => {
       const reviewer_name = faker.internet.userName();
       const reviewer_email = faker.internet.email();
       const helpfulness = Math.floor(Math.random() * 30);
-      const review = `${id_product},${rating},${summary},${recommend},${response},${body},${date},${reviewer_name},${reviewer_email},${helpfulness},false\n`;
+      const review = `${product_id},${rating},${summary},${recommend},${response},${body},${date},${reviewer_name},${reviewer_email},${helpfulness},false\n`;
       if (i === 0) {
         writer.write(review, encoding, callback);
       } else {

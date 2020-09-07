@@ -1,0 +1,36 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 4
+      name: "warm up"
+    - duration: 10
+      arrivalRate: 15
+      name: "high"
+    - duration: 30
+      arrivalRate: 6
+      name: "normal"
+    - duration: 15
+      arrivalRate: 20
+      name: "max"
+    - duration: 20
+      arrivalRate: 3
+      name: "low"
+  processor: "./stressTestHelperFuncs.js"
+scenarios:
+  - name: "GET reviews for a page"
+    flow:
+      - loop:
+        - function: "getRandomIds1"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        - function: "getRandomIds2"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        - function: "getRandomIds3"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        - function: "getRandomIds4"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        count: 33
