@@ -30,3 +30,6 @@ public/
 .vscode/
 config.js
 
+newrelic.js
+
+report.json

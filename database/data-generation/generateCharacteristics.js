@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const start = Date.now();
 const writeCharacteristics = fs.createWriteStream('characteristics.csv');
-writeCharacteristics.write('characteristics_id,product_id,name,value,\n', 'utf-8');
+writeCharacteristics.write('characteristics_id,product_id,name,value\n', 'utf-8');
 
 const writeTenMillionCharacteristics = (writer, encoding, callback) => {
   console.log(`START TIME = ${new Date().toUTCString()}`);

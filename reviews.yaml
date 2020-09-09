@@ -1,0 +1,25 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+      - duration: 60
+      arrivalRate: 20
+    - duration: 600
+      arrivalRate: 50
+  processor: "./stressTestHelperFuncs.js"
+scenarios:
+  - name: "GET reviews for a page"
+    flow:
+      - loop:
+        - function: "getRandomIds1"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        - function: "getRandomIds2"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        - function: "getRandomIds3"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        - function: "getRandomIds4"
+        - get:
+            url: "/rrmodule/reviews/{{ product_id }}/list"
+        count: 33

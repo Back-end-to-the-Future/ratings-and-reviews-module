@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const router = require('./routes.js');
+require('newrelic');
 
 const app = express();
 module.exports.app = app;
