@@ -104,11 +104,8 @@ In your browser, open up a window or tab to http://localhost:3000/
 
 ## Related Projects
 
-  - https://github.com/kwrnFec/honorio_proxy
-  - https://github.com/kwrnFec/shared_resources
-  - https://github.com/kwrnFec/related_items_module
-  - https://github.com/kwrnFec/q_and_a_module
-  - https://github.com/kwrnFec/ratings_and_reviews_module
+  - https://github.com/Back-end-to-the-Future/QandA_Module
+  - https://github.com/Back-end-to-the-Future/product-overview
 
 
 # Reviews API
