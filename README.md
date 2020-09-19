@@ -34,6 +34,12 @@
 
 ![new-relic-shot1](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-19%20at%2012.32.23.png)
 
+## Stress tested the service in development using the simulated data I created and realistic requests to the API by scaling the number of request per second (RPS): 1, 10, 100, 1K via [Artiller.io](https://artillery.io/)
+
+* Blew passed my goal of reaching 1k RPS with low latency times
+
+![rps-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/SDC%20Metrics%20top.png)
+
 # Reviews API
 
 ### List Reviews
