@@ -1,41 +1,32 @@
-# Ratings and Reviews Module
+# Delphi System Designs
 
-> Ratings and Reviews Module for an e-commerce shopping website
+> Delphi System Designs is a back-end optimizing service that optimized inherited legacy code from Elysium Solutions. Elysium Solutions is a single page e-commerce web application, featuring a Product-Overview, a Related Items, a Questions and Answers, and a Ratings and Reviews module each within a service-oriented / microservices architecture. I Inherited the legacy front-end of the Ratings and Reviews service and was tasked with building out an optimized back-end that could handle high production-level web traffic.
 
-## Related Projects
+## Legacy Ratings and Reviews Front End
 
-  - https://github.com/kwrnFec/q_and_a_module
-  - https://github.com/kwrnFec/overview_module
-  - https://github.com/kwrnFec/related_items_module
-  - https://github.com/kwrnFec/zach_proxy
+![reviews-FE](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-19%20at%2013.20.09.png)
 
-## Table of Contents
+# Objective for this initiative
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+## Scaling the Database
 
-## Usage
+* I ultimately chose PostgresQL because of my preference towards object-relational SQL databases and because it is open source.
 
-> Some usage instructions
+* I wrote three [data generation scripts](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/tree/master/database/data-generation) in order to generate over a total of 17 million records spread between the three tables I have in my [schema](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/database/database-postgresQL/schema.sql).
 
-## Requirements
+### It took me only 209 seconds to generate the 10M records for my primary table!
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+![data-gen-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-02%20at%2021.26.16.png)
 
-- Node 6.13.0
-- etc
+## DBMS Benchmarking
 
-## Development
+* Optimized the back end in order to verify that my queries used by my API ran under 50ms.
 
-### Installing Dependencies
+### I got them done in under 7ms
 
-From within the root directory:
+![query-duration](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-03%20at%2019.39.38.png)
 
-```sh
-npm install -g webpack
-npm install
-```
+
 
 # Reviews API
 
