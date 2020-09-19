@@ -6,7 +6,7 @@
 
 ![reviews-FE](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-19%20at%2013.20.09.png)
 
-# Objective for this initiative
+# Objectives for this initiative
 
 ## Scaling the Database
 
@@ -20,9 +20,9 @@
 
 ## DBMS Benchmarking
 
-* Optimized the back end in order to verify that my queries used by my API ran under 50ms.
+* My goal was to optimize the back end in order to verify that the queries used by my API ran under 50ms.
 
-### I got them done in under 7ms
+### I got them running in under 7ms
 
 ![query-duration](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-03%20at%2019.39.38.png)
 
