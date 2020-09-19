@@ -32,7 +32,7 @@
 
 ![new-relic-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-19%20at%2012.32.02.png)
 
-![new-relic-shot1](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-19%20at%2012.31.28.png)
+![new-relic-shot1](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-19%20at%2012.32.23.png)
 
 # Reviews API
 
