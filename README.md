@@ -38,9 +38,78 @@
 
 * Stress tested my service in development using the simulated data I created and realistic requests to the API by scaling the number of request per second (RPS): 1, 10, 100, 1K via [Artiller.io](https://artillery.io/)
 
-* Blew passed my goal of reaching 1k RPS with low latency times
+* Blew passed my goal of reaching 1k RPS with low latency times (2016.52 RPS)
 
 ![rps-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/SDC%20Metrics%20top.png)
+
+## Deployment
+
+* Deployed my service using two different Amazon Web Services (AWS) EC2 instances
+
+# Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+NodeJS and Xcode
+
+First, navigate to the preferred local directory.
+
+Next, fork the repo to your Github.
+
+Next, access the demo site by cloning the Github repository:
+
+```
+$ git clone https://github.com/Back-end-to-the-Future/ratings-and-reviews-module.git
+```
+
+### Installing
+
+Navigate inside the directory './ratings_and_reviews_module' and run the following commands:
+
+```
+$ npm i
+```
+
+After all dependencies are installed, run the following commands in two seperate terminal windows to start the server and the react development enviornment:
+
+```
+$ npm run start
+$ npm run react-dev
+```
+
+In your browser, open up a window or tab to http://localhost:3000/
+
+## Technologies Used
+
+* [PostgressQL](https://www.postgresql.org/)
+* [Express](https://expressjs.com/)
+* [Node.js](https://nodejs.org/en/)
+
+## Monitored and Stress Tested with
+
+* [New Relic](https://newrelic.com/)
+* [Artillery.io](Artiller.io)
+
+
+## Containerized and Deployed with
+
+* [Docker](https://hub.docker.com/)
+* [Amazon Web Services](https://aws.amazon.com/?nc2=h_lg) using EC2 instances
+
+## Author
+
+* **Honorio Taveras** - *Initial work* - [HonorioTaveras](https://github.com/HonorioTaveras)
+
+## Related Projects
+
+  - https://github.com/kwrnFec/honorio_proxy
+  - https://github.com/kwrnFec/shared_resources
+  - https://github.com/kwrnFec/related_items_module
+  - https://github.com/kwrnFec/q_and_a_module
+  - https://github.com/kwrnFec/ratings_and_reviews_module
+
 
 # Reviews API
 
@@ -153,37 +222,6 @@ Response
 }
 ```
 
-
-
-### Add a Review
-
-Adds a review for the given product.
-
-`POST /reviews/:product_id`
-
-Parameters
-
-| Parameter  | Type    | Description                                       |
-| ---------- | ------- | ------------------------------------------------- |
-| product_id | integer | Required ID of the product to post the review for |
-
-Body Parameters
-
-| Parameter       | Type   | Description                                                  |
-| --------------- | ------ | ------------------------------------------------------------ |
-| rating          | int    | Integer (1-5) indicating the review rating                   |
-| summary         | text   | Summary text of the review                                   |
-| body            | text   | Continued or full text of the review                         |
-| recommend       | bool   | Value indicating if the reviewer recommends the product      |
-| name            | text   | Username for question asker                                  |
-| email           | text   | Email address for question asker                             |
-| photos          | [text] | Array of text urls that link to images to be shown           |
-| characteristics | object | Object of keys representing characteristic_id and values representing the review value for that characteristic. { "14": 5, "15": 5 //...} (must send at least an empty object)|
-
-Response
-
-`Status: 201 CREATED `
-
 ### Mark Review as Helpful
 
 Updates a review to show it was found helpful.
@@ -199,22 +237,3 @@ Parameters
 Response
 
 `Status: 204 NO CONTENT `
-
-
-
-### Report Review
-
-Updates a review to show it was reported. Note, this action does not delete the review, but the review will not be returned in the above GET request.
-
-`PUT /reviews/report/:review_id`
-
-Parameters
-
-| Parameter | Type    | Description                         |
-| --------- | ------- | ----------------------------------- |
-| review_id | integer | Required ID of the review to update |
-
-Response
-
-`Status: 204 NO CONTENT `
-
