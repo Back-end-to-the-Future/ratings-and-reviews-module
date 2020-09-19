@@ -42,10 +42,6 @@
 
 ![rps-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/SDC%20Metrics%20top.png)
 
-## Deployment
-
-* Deployed my service using two different Amazon Web Services (AWS) EC2 instances
-
 # Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -93,9 +89,8 @@ In your browser, open up a window or tab to http://localhost:3000/
 * [Artillery.io](Artiller.io)
 
 
-## Containerized and Deployed with
+## Deployed with
 
-* [Docker](https://hub.docker.com/)
 * [Amazon Web Services](https://aws.amazon.com/?nc2=h_lg) using EC2 instances
 
 ## Author
