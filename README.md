@@ -18,6 +18,10 @@
 
 ![data-gen-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-02%20at%2021.26.16.png)
 
+### It took 115.42 seconds to seed my database
+
+![seed-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-03%20at%2014.24.00.png)
+
 ## DBMS Benchmarking
 
 * My goal was to optimize the back end in order to verify that the queries used by my API ran under 50ms.
