@@ -18,9 +18,9 @@
 
 ![data-gen-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-02%20at%2021.26.16.png)
 
-### It took 115.42 seconds to seed my database
+### It took 124.39 seconds to seed my database
 
-![seed-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-03%20at%2014.24.00.png)
+![seed-shot](https://github.com/Back-end-to-the-Future/ratings-and-reviews-module/blob/master/client/src/assets/images/Screen%20Shot%202020-09-02%20at%2021.31.14.png)
 
 ## DBMS Benchmarking
 
