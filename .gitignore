@@ -33,3 +33,5 @@ config.js
 newrelic.js
 
 report.json
+
+Journal/
