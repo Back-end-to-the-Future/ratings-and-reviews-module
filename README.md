@@ -1,6 +1,6 @@
 # Delphi System Designs
 
-> Delphi System Designs is a back-end focused initiative that optimized inherited front end legacy code from Elysium Solutions. Elysium Solutions is a single page e-commerce web application, featuring a Product-Overview, a Related Items, a Questions and Answers, and a Ratings and Reviews module each within a service-oriented / microservices architecture. I Inherited the legacy front-end of the Ratings and Reviews service and was tasked with building out an optimized back-end that could handle high production-level web traffic.
+> Delphi System Designs is a back-end focused initiative that optimized inherited front end legacy code from Elysium Solutions. Elysium Solutions is a single page e-commerce web application, featuring a Product-Overview, a Related Items, a Questions and Answers, and a Ratings and Reviews module each within a service-oriented / microservices architecture. I Inherited the legacy front-end of the Ratings and Reviews service and was tasked with building out a clean, scalable, and optimized back-end that could handle high production-level web traffic.
 
 ## The Ratings and Reviews client rendering my back end
 
