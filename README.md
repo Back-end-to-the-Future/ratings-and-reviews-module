@@ -1,6 +1,6 @@
 # Delphi System Designs
 
-> Delphi System Designs is a back-end focused initiative that optimized inherited front end legacy code. The front-end is the Ratings and Reviews module of a single page e-commerce web application within a service-oriented / microservices architecture. I was tasked with building out a clean and scalable back-end that could handle high production-level web traffic.
+> Delphi System Designs is a back-end focused initiative that optimized inherited front end legacy code. The front-end consists of the Ratings and Reviews module of a single page e-commerce web application within a service-oriented / microservices architecture. I was tasked with building out a clean and scalable back-end that could handle high production-level web traffic.
 
 ## The Ratings and Reviews client rendering my back end
 
